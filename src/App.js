@@ -11,8 +11,8 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route path="/signup" component={ SignUp } />
-        <Route path="/login" component={ Login } />
+        <Route exact path="/signup" component={ SignUp } />
+        <Route exact path="/login" component={ Login } />
         <Route path="/" component={ Main } />
       </Switch>
     </div>
