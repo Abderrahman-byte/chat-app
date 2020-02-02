@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 import '../styles/Login.scss';
 
 import { auth } from '../config/fire';
+import { Authentication } from '../context/AuthContext';
 
-export const Login = () => {
+export const Login = ({history}) => {
+    const {user} = useContext(Authentication);
+
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState(false);
 
@@ -16,10 +19,25 @@ export const Login = () => {
      
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        auth.signInWithEmailAndPassword(email, password)
+        .then(res => {
+            // user Login Successfull
+            history.push("/")
+        })
+        .catch(err => {
+            if(err.code === "auth/user-not-found") {
+                setEmailError(true);
+                setErrorMsg(err.message);
+            } else if(err.code === "auth/wrong-password") {
+                setPasswordError(true);
+                setErrorMsg(err.message)
+            }
+        })
     }
 
-    if(auth.currentUser) {
-        return (<div>You already sign in</div>)
+    if(user) {
+        return (<Redirect to="/" />)
     } else {
         return(
             <div className="Login">
@@ -31,7 +49,10 @@ export const Login = () => {
                             required
                             type="email" 
                             value={email} 
-                            onChange={(e) => setEmail(e.target.value)} 
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                setEmailError(false);
+                            }} 
                         />
                     </div>
 
@@ -42,7 +63,10 @@ export const Login = () => {
                             required 
                             type="password" 
                             value={password} 
-                            onChange={e => setPassword(e.target.value)} 
+                            onChange={e => {
+                                setPassword(e.target.value);
+                                setPasswordError(false);
+                            }} 
                         />
                     </div>
 
