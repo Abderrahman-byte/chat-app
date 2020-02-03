@@ -50,7 +50,7 @@ export const SignUp = () => {
         }
 
         if(password.length < 8) {
-            setPasswordError("Your password should includes more than 6 charactere !");
+            setPasswordError("Your password should includes more than 8 charactere !");
             passwordCheck = false;
         } else {
             setPasswordError(null);
@@ -74,6 +74,7 @@ export const SignUp = () => {
                     email,
                     pseudo,
                     password,
+                    avatar: "https://firebasestorage.googleapis.com/v0/b/chat-app-dac54.appspot.com/o/unknown-avatar.jpg?alt=media&token=fdeedf7e-7f35-41a0-95d1-f7918ddc64e9",
                     rooms: []
                 });
                 setPseudo("");

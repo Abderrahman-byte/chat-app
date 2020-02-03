@@ -1,11 +1,46 @@
 .Profil {
     &_avatar_div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em 0;
+
         img {
             width: 200px;
             height: 200px;
             object-fit: cover;
             object-position: center;
             border-radius: 50%;
+            border: 3px solid rgba(0, 0, 0, 0.5);
+        }
+
+        .label_avatar {
+            margin-top: 1em;
+            cursor: pointer;
+            background-color: whitesmoke;
+            color: whitesmoke;
+            background-color: rgb(65, 118, 255);
+            padding: .5em .75em;
+            border-radius: 10px;
+            font-weight: 600;
+            opacity: .5;
+            font-size: 1rem;
+            transition: all 100ms ease-in-out;
+
+            &:hover, &:active {
+                opacity: 1;
+                
+            }
+
+            i {
+                margin-left: .2em;
+            }
+        }
+
+        #input_avatar {
+            display: none;
         }
     }
 }

@@ -11,15 +11,15 @@ import { Profil } from './Profil';
 export const Main = ({ history }) => {
     const { user } = useContext(Authentication);
 
-    // const signOut = () => {
-    //     auth.signOut()
-    //     .then(() => history.push("/"))
-    // }
+    const signOut = () => {
+        auth.signOut()
+        .then(() => history.push("/"))
+    }
 
     if(user) {
         return (
             <UserProvider>
-                <Header/>
+                <Header signOut={signOut} />
                 <Switch>
                     <Route path="/profil" component={ Profil } />
                     <Redirect from="/" to="/profil" />
