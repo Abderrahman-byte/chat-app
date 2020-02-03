@@ -41,7 +41,7 @@ export const SignUp = () => {
             pseudoCheck = true;
         }
 
-        if(!/[a-z0-9]{4,}\@[a-z]{3,}\.[a-z]+/.test(email)) {
+        if(!/[a-z0-9]{4,}@[a-z]{3,}\.[a-z]+/.test(email)) {
             setEmailError("Email address invalid !");
             emailCheck = false;
         } else {
