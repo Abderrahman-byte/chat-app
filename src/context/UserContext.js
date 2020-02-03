@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
 
     }, [user, userId])
     return (
-        <User.Provider value={{ userProfil }}>
+        <User.Provider value={{ userProfil, userId }}>
             { children }
         </User.Provider>
     )
