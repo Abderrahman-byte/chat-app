@@ -1,3 +1,22 @@
 .Header {
-    padding: 1em 0;
+    padding: .5em 1em;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    justify-content: space-between;
+
+    &>.navbar {
+        &>.toggle_nav_btn {
+            font-size: 1.6rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: 100;
+            color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &>.logout_btn {
+        
+    }
 }

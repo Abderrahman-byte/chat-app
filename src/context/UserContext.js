@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext, memo } from 'react';
 
 import { db } from '../config/fire';
 import { Authentication } from './AuthContext';
 
 export const User = createContext();
 
-export const UserProvider = ({ children }) => {
+const UserProvider = ({ children }) => {
     const {user} = useContext(Authentication);
 
     const [userProfil, setUserProfil] = useState({});
@@ -26,3 +26,5 @@ export const UserProvider = ({ children }) => {
         </User.Provider>
     )
 }
+
+export default memo(UserProvider);

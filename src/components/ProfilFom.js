@@ -79,6 +79,11 @@ export const ProfilForm = () => {
 
     return (
         <form onSubmit={changeProfil} className="Profil_form">
+            {succesText?(
+                <div className="success_div">
+                    <p>{succesText}</p>
+                </div>
+            ):null}
             <div className="form_div">
                 <label>Pseudo:</label>
                 <input 
@@ -90,7 +95,7 @@ export const ProfilForm = () => {
             </div>
             <div className="form_div">
                 <label>Email Address:</label>
-                <p>test@gmail.com</p>
+                <p>{userProfil?userProfil.email:""}</p>
             </div>
 
             <div className="form_div">
@@ -121,16 +126,11 @@ export const ProfilForm = () => {
                     type="password" 
                 />
             </div>
-            <button>Save Changes</button>
+            <button className="submit_btn">Save Changes</button>
 
             {error?(
                 <div className="error_div">
                     <p>{error}</p>
-                </div>
-            ):null}
-            {succesText?(
-                <div className="success_div">
-                    <p>{succesText}</p>
                 </div>
             ):null}
         </form>
