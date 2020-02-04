@@ -60,6 +60,10 @@
             padding-bottom: .2em;
             font-weight: 700;
             outline: none;
+
+            option {
+                max-width: 100%;
+            }
         }
     }
 

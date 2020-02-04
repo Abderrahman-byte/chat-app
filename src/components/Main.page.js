@@ -7,6 +7,7 @@ import UserProvider from '../context/UserContext';
 
 import { Header } from './Header';
 import { Profil } from './Profil';
+import { RoomsList } from './RoomsList';
 
 export const Main = ({ history }) => {
     const { user } = useContext(Authentication);
@@ -22,7 +23,8 @@ export const Main = ({ history }) => {
                 <Header signOut={signOut} />
                 <Switch>
                     <Route path="/profil" component={ Profil } />
-                    <Redirect from="/" to="/profil" />
+                    <Route path="/rooms" component={ RoomsList } />
+                    <Redirect from="/" to="/rooms" />
                 </Switch>
             </UserProvider>
         )
