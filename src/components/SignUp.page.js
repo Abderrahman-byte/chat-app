@@ -75,7 +75,8 @@ export const SignUp = () => {
                     pseudo,
                     password,
                     avatar: "https://firebasestorage.googleapis.com/v0/b/chat-app-dac54.appspot.com/o/unknown-avatar.jpg?alt=media&token=fdeedf7e-7f35-41a0-95d1-f7918ddc64e9",
-                    rooms: []
+                    gender: null,
+                    birth_day: null
                 });
                 setPseudo("");
                 setEmail("");
