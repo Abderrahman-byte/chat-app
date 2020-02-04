@@ -1,9 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import '../styles/NavList.scss';
 import logo from '../assets/logo.png';
 
-export const NavList = ({ navState}) => {
+export const NavList = ({ navState , close }) => {
     
     return(
         <ul className={navState?"NavList show":"NavList"}>
@@ -12,13 +13,13 @@ export const NavList = ({ navState}) => {
                 <h1>Chat App</h1>
             </li>
             <li>
-                <a href="/">profil</a>
+                <NavLink onClick={close} to="/profil">Profil</NavLink>
             </li>
             <li>
-                <a href="/">profil</a>
+                <NavLink onClick={close} to="/rooms">Chat Rooms</NavLink>
             </li>
             <li>
-                <a href="/">profil</a>
+                <NavLink onClick={close} to="/create">Create Chat Room</NavLink>
             </li>
         </ul>
     )

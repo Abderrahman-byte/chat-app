@@ -23,7 +23,7 @@ export const Login = ({history}) => {
         auth.signInWithEmailAndPassword(email, password)
         .then(res => {
             // user Login Successfull
-            history.push("/")
+            history.push(history.location.state?history.location.state.prevLocation:"/");
         })
         .catch(err => {
             if(err.code === "auth/user-not-found") {
@@ -37,7 +37,7 @@ export const Login = ({history}) => {
     }
 
     if(user) {
-        return (<Redirect to="/" />)
+        return (<Redirect to={history.location.state?history.location.state.prevLocation:"/"} />)
     } else {
         return(
             <div className="Login">

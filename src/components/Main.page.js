@@ -8,6 +8,7 @@ import UserProvider from '../context/UserContext';
 import { Header } from './Header';
 import { Profil } from './Profil';
 import { RoomsList } from './RoomsList';
+import { CreateRoom } from './CreateRoom';
 
 export const Main = ({ history }) => {
     const { user } = useContext(Authentication);
@@ -24,12 +25,18 @@ export const Main = ({ history }) => {
                 <Switch>
                     <Route path="/profil" component={ Profil } />
                     <Route path="/rooms" component={ RoomsList } />
-                    <Redirect from="/" to="/rooms" />
+                    <Route path="/create" component={ CreateRoom } />
                 </Switch>
             </UserProvider>
         )
     } else {
-        return <Redirect to="/login" />
+        return (<Redirect to={{ 
+                pathname: "/login", 
+                state: { 
+                    prevLocation: history.location.pathname
+                }
+            }
+        }/>)
     }
     
 }

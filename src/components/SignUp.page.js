@@ -7,7 +7,7 @@ import { auth, db } from '../config/fire';
 import { Link } from 'react-router-dom';
 import { Authentication } from '../context/AuthContext';
 
-export const SignUp = () => {
+export const SignUp = ({history}) => {
     const {user} = useContext(Authentication);
 
     const [pseudo, setPseudo] = useState("");
@@ -83,6 +83,7 @@ export const SignUp = () => {
                 setPassword("");
                 setSecondPassword("");
             })
+            .then(() => history.push('/profil'))
             .catch(err => {
                 if(err.code === "auth/email-already-in-use") {
                     setEmailError(err.message)

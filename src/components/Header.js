@@ -22,7 +22,7 @@ export const Header = ({ signOut }) => {
                 <button className="toggle_nav_btn" onClick={toggleNavbar}>
                     <i className="fas fa-bars"></i>
                 </button>
-                <NavList navState={isNavbarOpen} />
+                <NavList close={closeNavbar} navState={isNavbarOpen} />
                 {isNavbarOpen?(<Back close={closeNavbar} />):(null)}
             </nav>
             <button className="logout_btn" onClick={signOut}>logout</button>
