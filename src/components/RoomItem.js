@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import '../styles/RoomItem.scss';
 
+import { User } from '../context/UserContext';
+import { useHistory, Link } from 'react-router-dom';
+
 export const RoomItem = ({room}) => {
+    const { changeRoom, userId } = useContext(User);
+    const history = useHistory();
+
     const data = room.data();
     const creationDate = new Date(Number(data.creating_date));
     const creationDay = creationDate.toDateString().substring(8,10);
@@ -18,8 +24,20 @@ export const RoomItem = ({room}) => {
                 <p className="date">created date: {creationDay + "/" + creationMonth + "/" + creationYear}</p>
             </div>
             <div className="RoomItem_pt_2">
-                <i className="fas fa-arrow-right"></i>
+                <button onClick={() => {
+                    changeRoom(room.id)
+                    history.push('/chat');
+                }}>
+                    <i className="fas fa-arrow-right"></i>
+                </button>
             </div>
+
+            {room.data().admin_id  === userId?(
+                <Link className="settings">
+                    <i className="fas fa-user-cog"></i>
+                </Link>
+            ): null}
+            
         </div>
     )
 }

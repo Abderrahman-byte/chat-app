@@ -9,6 +9,7 @@ import { Header } from './Header';
 import { Profil } from './Profil';
 import { RoomsList } from './RoomsList';
 import { CreateRoom } from './CreateRoom';
+import { ChatRoom } from './ChatRoom';
 
 export const Main = ({ history }) => {
     const { user } = useContext(Authentication);
@@ -26,6 +27,7 @@ export const Main = ({ history }) => {
                     <Route path="/profil" component={ Profil } />
                     <Route path="/rooms" component={ RoomsList } />
                     <Route path="/create" component={ CreateRoom } />
+                    <Route path="/chat" component={ ChatRoom } />
                 </Switch>
             </UserProvider>
         )

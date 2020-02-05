@@ -11,6 +11,7 @@ const UserProvider = ({ children }) => {
     const [userProfil, setUserProfil] = useState({});
     const [rooms, setRooms] = useState([]);
     const [userId, setUserId] = useState(null);
+    const [currentRoomId, setCurrentRoomId] = useState(null);
     
     useEffect(() => {
         setUserId(user.uid);
@@ -24,10 +25,14 @@ const UserProvider = ({ children }) => {
             })
         }
 
-    }, [user, userId])
+    }, [user, userId]);
+
+    const changeRoom = (id) => {
+        setCurrentRoomId(id);
+    }
 
     return (
-        <User.Provider value={{ userProfil, userId, rooms }}>
+        <User.Provider value={{ userProfil, userId, rooms, currentRoomId, changeRoom }}>
             { children }
         </User.Provider>
     )
