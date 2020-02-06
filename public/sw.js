@@ -1,8 +1,7 @@
-const cacheName = 'v3.1.4';
+const cacheName = 'v3.1.5';
 
 // Call install event
 self.addEventListener('install', e => {
-    console.log('installed')
 
     e.waitUntil(
         caches.open(cacheName)
@@ -16,7 +15,6 @@ self.addEventListener('install', e => {
 
 // Call activate event 
 self.addEventListener('activate', e => {
-    console.log('activated')
 
     e.waitUntil(
         caches.keys()
