@@ -33,15 +33,12 @@ export const SignUp = ({history}) => {
         if(pseudo.length < 6) {
             setPseudoError("Your pseudo should indludes more than 6 characteres !");
             pseudoCheck = false;
-        } else if(!/([A-Z]{0,1})([a-z]{3,})([0-9]{2,4})/.test(pseudo)) {
-            setPseudoError("Your pseudo should indludes at less 2 numbers !");
-            pseudoCheck = false;
         } else {
             setPseudoError(null);
             pseudoCheck = true;
         }
 
-        if(!/[a-z0-9]{4,}@[a-z]{3,}\.[a-z]+/.test(email)) {
+        if(!/[a-z0-9]{4,}@[a-z]{2,}\.[a-z]+/.test(email)) {
             setEmailError("Email address invalid !");
             emailCheck = false;
         } else {

@@ -10,6 +10,7 @@ import { Profil } from './Profil';
 import { RoomsList } from './RoomsList';
 import { CreateRoom } from './CreateRoom';
 import { ChatRoom } from './ChatRoom';
+import { Settings } from './Settings';
 
 export const Main = ({ history }) => {
     const { user } = useContext(Authentication);
@@ -28,6 +29,8 @@ export const Main = ({ history }) => {
                     <Route path="/rooms" component={ RoomsList } />
                     <Route path="/create" component={ CreateRoom } />
                     <Route path="/chat" component={ ChatRoom } />
+                    <Route path="/settings/:id" component={ Settings } />
+                    <Redirect from="/" to="/rooms" />
                 </Switch>
             </UserProvider>
         )

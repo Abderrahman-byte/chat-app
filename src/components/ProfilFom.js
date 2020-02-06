@@ -4,11 +4,9 @@ import '../styles/ProfilForm.scss';
 
 import { User } from '../context/UserContext';
 import { db, auth } from '../config/fire';
-import { Authentication } from '../context/AuthContext';
 
 export const ProfilForm = () => {
     const {userProfil, userId} = useContext(User);
-    const {user} = useContext(Authentication);
     
     const [pseudo, setPseudo] = useState("");
     const [password, setPassword] = useState("");
@@ -49,8 +47,6 @@ export const ProfilForm = () => {
 
         if(pseudo.length < 6) {
             setError("Your pseudo should indludes more than 6 characteres !")
-        } else if(!/([A-Z]{0,1})([a-z]{3,})([0-9]{2,4})/.test(pseudo)) {
-            setError("Your pseudo should indludes at less 2 numbers !")
         } else if(password.length < 8) {
             setError("Your password should includes more than 8 charactere !");
         } else if(today - birth_day < (13 * 366 * 24 * 60 * 60 * 1000) ) {

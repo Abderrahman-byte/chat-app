@@ -1,4 +1,24 @@
 .Profil {
+    .delete_account_div {
+        display: flex;
+        justify-content: center;
+        padding: 2em 0;
+
+        button {
+            padding: .75em 1em;
+            background-color: rgb(255, 24, 24);
+            font-size: 1.2rem;
+            color: whitesmoke;
+            outline: none;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+
+            &:hover, &:active {
+                background-color: rgb(240, 28, 28);
+            }
+        }
+    }
     &_avatar_div {
         width: 100%;
         display: flex;

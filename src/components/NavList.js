@@ -13,13 +13,22 @@ export const NavList = ({ navState , close }) => {
                 <h1>Chat App</h1>
             </li>
             <li>
-                <NavLink onClick={close} to="/profil">Profil</NavLink>
+                <NavLink onClick={close} to="/profil">
+                    <i className="fas fa-user"></i>
+                    Profil
+                </NavLink>
             </li>
             <li>
-                <NavLink onClick={close} to="/rooms">Chat Rooms</NavLink>
+                <NavLink onClick={close} to="/rooms">
+                    <i className="fas fa-comments"></i>
+                    Chat Rooms
+                </NavLink>
             </li>
             <li>
-                <NavLink onClick={close} to="/create">Create Chat Room</NavLink>
+                <NavLink onClick={close} to="/create">
+                    <i className="fas fa-plus"></i>
+                    Create Chat Room
+                </NavLink>
             </li>
         </ul>
     )

@@ -12,7 +12,7 @@ export const Message = ({msg}) => {
     useEffect(() => {
         db.doc(`users/${msg.sender_id}`).get()
         .then(doc => {
-            setMsgSender(doc.data())
+            setMsgSender(doc.data() || {})
         })
     }, [msg]);
 

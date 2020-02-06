@@ -1,0 +1,103 @@
+.Settings {
+    h2 {
+        width: 100%;
+        text-align: center;
+        font-weight: 100;
+        padding: 1em 0;
+    }
+
+    .succes_div {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(8, 143, 8, 0.75);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: .5em 0;
+        border-radius: 25px;
+
+        p {
+            color: whitesmoke;
+            font-size: 1.3rem;
+            letter-spacing: 5px;
+        }
+    }
+
+    .delete_div {
+        margin-top: 2em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        button {
+            padding: .5em 1em;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            border: none;
+            color: whitesmoke;
+            font-weight: 700;
+            outline: none;
+            background-color: rgb(255, 28, 28);
+            cursor: pointer;
+        }
+    }
+
+    &_form {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        
+        .submit_btn {
+            align-self: center;
+            padding: .5em .75em;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            border: none;
+            color: whitesmoke;
+            font-weight: 700;
+            outline: none;
+            background-color: rgb(65, 105, 255);
+            cursor: pointer;
+        }
+
+        .form_div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1em;
+
+            label {
+                margin-bottom: .5em;
+                text-transform: capitalize;
+                letter-spacing: 3px;
+            }
+
+            input, textarea {
+                padding: .3em .2em;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                font-size: 1.3rem;
+                color: rgba(0, 0, 0, 0.5);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+            }
+
+            textarea {
+                width: 100%;
+                height: 60px;
+                resize: none;
+            }
+        }
+    }
+}
+
+.loading {
+    padding: 3em 0;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 20%;
+    }
+}

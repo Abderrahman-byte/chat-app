@@ -5,5 +5,41 @@
         font-weight: 100; 
         padding: 1em 0;
     }
+
+    .pagination {
+        width: 100%;
+        padding: 1em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            margin: 0 .75em;
+            font-size: 1.5rem;
+        }
+
+        button {
+            outline: none;
+            padding: .25em;
+            font-size: 1.6rem;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+
+        button:disabled {
+            cursor: default;
+        }
+    }
+
+    .emty_warning {
+        padding: 1em 2em;
+        text-align: center;
+
+        p {
+            letter-spacing: 3px;
+            color: rgba(0, 0, 0, 0.75);
+        }
+    }
     
 }

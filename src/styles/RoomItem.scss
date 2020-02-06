@@ -15,6 +15,7 @@
         position: absolute;
         top: 5%;
         right: 2%;
+        color: rgb(76, 23, 100);
     }
 
     .RoomItem_pt_1 {
@@ -47,6 +48,7 @@
             background-color: transparent;
             border: none;
             color: whitesmoke;
+            outline: none;
             transition: all 100ms ease-in-out;
             cursor: pointer;
             transform: translate(-5px);

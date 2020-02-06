@@ -6,9 +6,13 @@ import avatarUnknown from '../assets/unknown-avatar.jpg';
 import { User } from '../context/UserContext';
 import { storage, db } from '../config/fire';
 import { ProfilForm } from './ProfilFom';
+import { auth } from '../config/fire';
+import { useHistory } from 'react-router-dom';
 
 export const Profil = () => {
     const { userProfil, userId } = useContext(User);
+
+    const history = useHistory();
 
     const changeAvatar = (file) => {
         if(file) {
@@ -26,6 +30,28 @@ export const Profil = () => {
             .catch(err => console.log(err))            
         }
         
+    }
+
+    const deleteAccount = () => {
+        auth.signInWithEmailAndPassword(userProfil.email, userProfil.password)
+        .then(cred => {
+            const roomIds = [];
+            history.push('/login');
+            db.collection('rooms').get()
+            .then(snapshot => {
+                snapshot.docs.forEach(doc => {
+                    if(doc.data().admin_id === userId) roomIds.push(doc.id);
+                })
+            })
+            .then(() => {
+                roomIds.forEach(id => {
+                    db.doc(`rooms/${id}`).delete();
+                })
+            })
+
+            db.doc(`users/${userId}`).delete()
+            cred.user.delete();
+        })
     }
 
     return (
@@ -46,6 +72,10 @@ export const Profil = () => {
             </div>
 
             <ProfilForm />
+
+            <div className="delete_account_div">
+                <button onClick={deleteAccount}>delete account</button>
+            </div>
         </div>
     )
 }

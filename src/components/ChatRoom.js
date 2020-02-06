@@ -5,7 +5,7 @@ import '../styles/ChatRoom.scss';
 import uuid from 'uuid/v1';
 import { db } from '../config/fire';
 import { Message } from './Message';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 export const ChatRoom = () => {
     const { currentRoomId, userId, rooms } = useContext(User);
@@ -48,6 +48,15 @@ export const ChatRoom = () => {
 
     return (
         <div className="ChatRoom">
+            <div className="ChatRoom_info">
+                <h4>{currentRoom && currentRoom.data?currentRoom.data().name:null}</h4>
+                {currentRoom && currentRoom.data && currentRoom.data().admin_id === userId? (
+                    <Link className="setting_btn" to={`settings/${currentRoom.id}`}>
+                        <i className="fas fa-user-cog"></i>
+                    </Link>
+                ): null}
+            </div>
+
             <div className="chatList">
                 {currentRoom && currentRoom.data?(
                     currentRoom.data().messages.map(message => <Message key={message.id} msg={message} />)

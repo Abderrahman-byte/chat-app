@@ -38,9 +38,19 @@
             text-transform: capitalize;
             text-decoration: none;
             padding: .5em 1em;
+            color: rgba(0, 0, 0, 0.5);
+
+            i {
+                margin-right: .3em;
+            }
 
             &:hover, &:active {
+                background-color: rgb(230, 230, 230);
+            }
+
+            &.active {
                 background-color: whitesmoke;
+                color: rgba(0, 0, 0, 0.75);
             }
             
         }

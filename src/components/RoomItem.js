@@ -33,7 +33,7 @@ export const RoomItem = ({room}) => {
             </div>
 
             {room.data().admin_id  === userId?(
-                <Link className="settings">
+                <Link className="settings" to={`settings/${room.id}`}>
                     <i className="fas fa-user-cog"></i>
                 </Link>
             ): null}

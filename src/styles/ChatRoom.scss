@@ -1,7 +1,28 @@
 .ChatRoom {
     .chatList {
         padding: 0 1em;
-        padding-top: 1em;
+    }
+
+    &_info {
+        position: relative;
+        margin: .5em 0;
+
+        h4 {
+            width: 100%;
+            text-align: center;
+            padding: .5em 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 100;
+            font-size: 1.6rem;
+        }
+
+        .setting_btn {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            color: rgb(76, 23, 100);
+        }
     }
 
     .msg_form {
